@@ -15,55 +15,42 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <view contentMode="scaleToFill" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H6g-Op-2a4">
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="H6g-Op-2a4">
                                 <rect key="frame" x="20" y="110" width="375" height="470"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" misplaced="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5N-Cb-UXs">
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="B5N-Cb-UXs">
                                         <rect key="frame" x="10" y="10" width="355" height="450"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     </imageView>
                                 </subviews>
                                 <color key="backgroundColor" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstItem="B5N-Cb-UXs" firstAttribute="centerX" secondItem="H6g-Op-2a4" secondAttribute="centerX" id="M9Z-hF-0KW"/>
-                                    <constraint firstItem="B5N-Cb-UXs" firstAttribute="top" secondItem="H6g-Op-2a4" secondAttribute="top" constant="10" id="OQ1-Jo-znD"/>
-                                    <constraint firstItem="B5N-Cb-UXs" firstAttribute="leading" secondItem="H6g-Op-2a4" secondAttribute="leading" constant="10" id="QWi-BP-p1H"/>
-                                    <constraint firstItem="B5N-Cb-UXs" firstAttribute="centerY" secondItem="H6g-Op-2a4" secondAttribute="centerY" id="qXC-aW-cbz"/>
-                                </constraints>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Intensity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edg-iA-by9">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Intensity:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="edg-iA-by9">
                                 <rect key="frame" x="20" y="769" width="88" height="21"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="88" id="nbi-hq-aGT"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <slider opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZCu-Bg-O3a">
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="ZCu-Bg-O3a">
                                 <rect key="frame" x="114" y="764" width="282" height="30"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="29" id="hAv-ax-gGe"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
                                     <action selector="intensityChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="BmA-ge-oRp"/>
                                 </connections>
                             </slider>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkt-sj-Uhr">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qkt-sj-Uhr">
                                 <rect key="frame" x="20" y="798" width="120" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="44" id="ad5-jO-h0v"/>
-                                    <constraint firstAttribute="width" constant="120" id="xbG-zb-8CJ"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Change Fliter"/>
                                 <connections>
                                     <action selector="changeFilter:" destination="BYZ-38-t0r" eventType="touchUpInside" id="LM4-Nf-vXm"/>
                                 </connections>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" misplaced="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-OA-d8r">
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="UFO-OA-d8r">
                                 <rect key="frame" x="335" y="798" width="60" height="44"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="60" id="PcS-R7-OMd"/>
-                                </constraints>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save"/>
                                 <connections>
                                     <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eXP-TG-j1E"/>
@@ -71,22 +58,6 @@
                             </button>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
-                        <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="Qkt-sj-Uhr" secondAttribute="bottom" constant="20" id="1QK-tY-uUw"/>
-                            <constraint firstItem="edg-iA-by9" firstAttribute="leading" secondItem="Qkt-sj-Uhr" secondAttribute="leading" id="2co-Xv-VkC"/>
-                            <constraint firstItem="H6g-Op-2a4" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="22" id="2xb-RY-8I1"/>
-                            <constraint firstItem="Qkt-sj-Uhr" firstAttribute="top" secondItem="ZCu-Bg-O3a" secondAttribute="bottom" constant="5" id="8E8-Df-2cb"/>
-                            <constraint firstItem="H6g-Op-2a4" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="EUM-xL-XfJ"/>
-                            <constraint firstAttribute="bottom" secondItem="H6g-Op-2a4" secondAttribute="bottom" constant="316" id="IGg-lI-6II"/>
-                            <constraint firstItem="ZCu-Bg-O3a" firstAttribute="trailing" secondItem="8bC-Xf-vdC" secondAttribute="trailingMargin" id="J7W-lh-Dkh"/>
-                            <constraint firstItem="H6g-Op-2a4" firstAttribute="leading" secondItem="edg-iA-by9" secondAttribute="leading" id="MLN-rH-OmL"/>
-                            <constraint firstItem="Qkt-sj-Uhr" firstAttribute="top" secondItem="UFO-OA-d8r" secondAttribute="top" id="Y5i-rq-kZI"/>
-                            <constraint firstItem="H6g-Op-2a4" firstAttribute="trailing" secondItem="UFO-OA-d8r" secondAttribute="trailing" id="cx5-pj-H3f"/>
-                            <constraint firstItem="ZCu-Bg-O3a" firstAttribute="leading" secondItem="edg-iA-by9" secondAttribute="trailing" constant="8" id="f73-lK-sdV"/>
-                            <constraint firstItem="Qkt-sj-Uhr" firstAttribute="top" secondItem="edg-iA-by9" secondAttribute="bottom" constant="8" id="qrH-jR-7eG"/>
-                            <constraint firstItem="H6g-Op-2a4" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leadingMargin" id="sU1-fA-itS"/>
-                            <constraint firstItem="Qkt-sj-Uhr" firstAttribute="baseline" secondItem="UFO-OA-d8r" secondAttribute="firstBaseline" id="w7K-k3-Cfw"/>
-                        </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="BVC-Nl-muV"/>
