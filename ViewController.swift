@@ -44,6 +44,8 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     }
     
     func applyProcessing() {
+        let inputKeys = currentFilter.inputKeys
+        
         guard let image = currentFilter.outputImage else { return }
         currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey)
 
@@ -72,7 +74,15 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
      }
      
     func setFilter(action: UIAlertAction) {
-        print(action.title!)
+        guard currentImage != nil else {return}
+        guard let actionTitle = action.title else {return}
+        
+        currentFilter = CIFilter(name: actionTitle)
+        let beginimage = CIImage(image: currentImage)
+        currentFilter.setValue(beginimage, forKey: kCIInputImageKey)
+        
+        applyProcessing()
+        
     }
     
     @IBAction func save(_ sender: Any) {
