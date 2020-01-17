@@ -4,7 +4,10 @@ import UIKit
 class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     @IBOutlet var imageView: UIImageView!
     @IBOutlet var intensity: UISlider!
+    @IBOutlet var radiusSlider: UISlider!
+    
     var currentImage: UIImage!
+    @IBOutlet var changeFilter: UIButton!
     
     var currentFilter: CIFilter!
     let context = CIContext()
@@ -15,9 +18,12 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         title = "Picture"
         navigationItem.rightBarButtonItem = UIBarButtonItem(barButtonSystemItem: .add, target: self, action: #selector(importPicture))
         currentFilter = CIFilter(name: "CISepiaTone")
+        changeFilter.setTitle("CISepiaTone", for: .normal)
+        
     }
     
-    @IBAction func changeFilter(_ sender: Any) {
+    
+    @IBAction func changeFilter(_ sender: UIButton) {
         let ac = UIAlertController(title: "Choose filter", message: nil, preferredStyle: .actionSheet)
         ac.addAction(UIAlertAction(title: "CIBumpDistortion", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIGaussianBlur", style: .default, handler: setFilter))
@@ -27,6 +33,11 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         ac.addAction(UIAlertAction(title: "CIUnsharpMask", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "CIVignette", style: .default, handler: setFilter))
         ac.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: nil))
+        
+        if let popoverController = ac.popoverPresentationController {
+                   popoverController.sourceView = sender
+                   popoverController.sourceRect = sender.bounds
+               }
         present(ac, animated: true)
     }
     
@@ -35,9 +46,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         UIImageWriteToSavedPhotosAlbum(imageView.image!, self, #selector(image(_:didFinishSavingWithError:contextInfo:)), nil)
     }
     
+    @IBAction func radiusChanged(_ sender: Any) {
+        applyProcessing()
+    }
+    
     @IBAction func intensityChanged(_ sender: Any) {
         applyProcessing()
     }
+    
     
     @objc func importPicture() {
         let picker = UIImagePickerController()
@@ -64,6 +80,7 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
         
         if inputKeys.contains(kCIInputIntensityKey) { currentFilter.setValue(intensity.value, forKey: kCIInputIntensityKey) }
         if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(intensity.value * 200, forKey: kCIInputRadiusKey) }
+        if inputKeys.contains(kCIInputRadiusKey) { currentFilter.setValue(radiusSlider.value * 200, forKey: kCIInputRadiusKey) }
         if inputKeys.contains(kCIInputScaleKey) { currentFilter.setValue(intensity.value * 10, forKey: kCIInputScaleKey) }
         if inputKeys.contains(kCIInputCenterKey) { currentFilter.setValue(CIVector(x: currentImage.size.width / 2, y: currentImage.size.height / 2), forKey: kCIInputCenterKey) }
         
@@ -76,11 +93,14 @@ class ViewController: UIViewController, UIImagePickerControllerDelegate, UINavig
     
     func setFilter(action: UIAlertAction) {
         guard currentImage != nil else { return }
+        guard let actionTitle = action.title else { return }
         
         currentFilter = CIFilter(name: action.title!)
         
         let beginImage = CIImage(image: currentImage)
         currentFilter.setValue(beginImage, forKey: kCIInputImageKey)
+        changeFilter.setTitle(actionTitle, for: .normal)
+
         
         applyProcessing()
     }

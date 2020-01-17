@@ -56,14 +56,31 @@
                                     <action selector="save:" destination="BYZ-38-t0r" eventType="touchUpInside" id="eXP-TG-j1E"/>
                                 </connections>
                             </button>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="0.5" minValue="0.0" maxValue="1" translatesAutoresizingMaskIntoConstraints="NO" id="6Ty-cK-nCT" userLabel="radius">
+                                <rect key="frame" x="114" y="709" width="282" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <connections>
+                                    <action selector="radiusChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="C3h-Ez-W5p"/>
+                                </connections>
+                            </slider>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Radius:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="TdY-R8-U8d">
+                                <rect key="frame" x="20" y="717" width="57" height="21"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <navigationItem key="navigationItem" id="BVC-Nl-muV"/>
                     <connections>
+                        <outlet property="changeFilter" destination="Qkt-sj-Uhr" id="jiM-m6-lfi"/>
                         <outlet property="imageView" destination="B5N-Cb-UXs" id="Smp-Jv-pCi"/>
                         <outlet property="intensity" destination="ZCu-Bg-O3a" id="uLn-C5-duh"/>
+                        <outlet property="radiusChanged" destination="6Ty-cK-nCT" id="fkN-1U-Gd6"/>
+                        <outlet property="radiusSlider" destination="6Ty-cK-nCT" id="2kP-YX-rDF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
